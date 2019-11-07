@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "@eva-design/eva": "1.2.0",
+    "@ui-kitten/eva-icons": "4.2.0",
     "react": "16.9.0",
     "react-native": "0.61.4",
+    "react-native-svg": "9.13.3",
     "react-native-ui-kitten": "4.2.0"
   },
   "devDependencies": {
