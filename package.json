@@ -10,8 +10,10 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@eva-design/eva": "1.2.0",
     "react": "16.9.0",
-    "react-native": "0.61.4"
+    "react-native": "0.61.4",
+    "react-native-ui-kitten": "4.2.0"
   },
   "devDependencies": {
     "@babel/core": "7.7.2",
