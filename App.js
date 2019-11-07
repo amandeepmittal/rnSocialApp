@@ -7,7 +7,7 @@ import { View, Text } from 'react-native'
 const MockComponent = () => (
   <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
     <Text>React Native Instagram Clone</Text>
-    <Icon name='wifi-outline' width={50} height={50} />
+    <Icon name='wifi-outline' width={50} height={50} fill='#288989' />
   </View>
 )
 
