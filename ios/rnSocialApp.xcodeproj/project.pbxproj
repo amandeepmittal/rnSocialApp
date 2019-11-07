@@ -17,6 +17,7 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* rnSocialAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* rnSocialAppTests.m */; };
 		779054E8CDDCBB127E990338 /* libPods-rnSocialAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3581D91112B052C0A0F727 /* libPods-rnSocialAppTests.a */; };
+		85D12A5923744AA30047A435 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 85D12A5823744AA30047A435 /* GoogleService-Info.plist */; };
 		AF12BD5DCA916A8CD6DE08E3 /* libPods-rnSocialApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2636EE6A6A4580E5E164AD6F /* libPods-rnSocialApp.a */; };
 		B23A95342F7D06A709F89FE1 /* libPods-rnSocialApp-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C7F95C58010F008C25D3992 /* libPods-rnSocialApp-tvOSTests.a */; };
 		DF8033567F083A23BE9FC1F6 /* libPods-rnSocialApp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 837F7B0E5651C03F0F43488B /* libPods-rnSocialApp-tvOS.a */; };
@@ -61,6 +62,7 @@
 		5025A3940E9AC79DDDA61CF1 /* Pods-rnSocialApp-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rnSocialApp-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-rnSocialApp-tvOS/Pods-rnSocialApp-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		55737C6C639C855295089F11 /* Pods-rnSocialAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rnSocialAppTests.release.xcconfig"; path = "Target Support Files/Pods-rnSocialAppTests/Pods-rnSocialAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		837F7B0E5651C03F0F43488B /* libPods-rnSocialApp-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rnSocialApp-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		85D12A5823744AA30047A435 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A647F05D836D0E51E812CA1B /* Pods-rnSocialAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rnSocialAppTests.debug.xcconfig"; path = "Target Support Files/Pods-rnSocialAppTests/Pods-rnSocialAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DD1C81970DD6058D13826D81 /* Pods-rnSocialApp-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rnSocialApp-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-rnSocialApp-tvOSTests/Pods-rnSocialApp-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -125,6 +127,7 @@
 		13B07FAE1A68108700A75B9A /* rnSocialApp */ = {
 			isa = PBXGroup;
 			children = (
+				85D12A5823744AA30047A435 /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -194,7 +197,6 @@
 				A647F05D836D0E51E812CA1B /* Pods-rnSocialAppTests.debug.xcconfig */,
 				55737C6C639C855295089F11 /* Pods-rnSocialAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -308,6 +310,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -338,6 +341,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				85D12A5923744AA30047A435 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
