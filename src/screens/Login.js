@@ -1,12 +1,40 @@
 import React, { Component } from 'react'
 import { View } from 'react-native'
 import { Text, Button, Input, Icon } from 'react-native-ui-kitten'
+import { withFirebaseHOC } from '../utils'
 
 class Login extends Component {
+  state = {
+    email: '',
+    password: ''
+  }
+
+  onChangeEmail = email => {
+    this.setState({ email })
+  }
+
+  onChangePassword = password => {
+    this.setState({ password })
+  }
+
+  handleOnLogin = async () => {
+    const { email, password } = this.state
+    try {
+      const response = await this.props.firebase.loginWithEmail(email, password)
+
+      if (response.user) {
+        this.props.navigation.navigate('App')
+      }
+    } catch (error) {
+      alert('Could not login due to', error)
+    }
+  }
+
   handleSignup = () => {
     this.props.navigation.navigate('Signup')
   }
   render() {
+    const { email, password } = this.state
     return (
       <View style={{ flex: 1, backgroundColor: '#fff', paddingHorizontal: 30 }}>
         <View style={{ alignItems: 'center', marginTop: 60 }}>
@@ -15,6 +43,8 @@ class Login extends Component {
         <View style={{ marginTop: 20 }}>
           <Input
             style={{ marginTop: 10, fontSize: 16 }}
+            value={email}
+            onChangeText={this.onChangeEmail}
             label='Email'
             autoCapitalize='none'
             autoCompleteType='email'
@@ -26,10 +56,12 @@ class Login extends Component {
             style={{ marginTop: 10, fontSize: 16 }}
             label='Password'
             secureTextEntry={true}
+            value={password}
+            onChangeText={this.onChangePassword}
           />
         </View>
         <View style={{ marginTop: 20 }}>
-          <Button status='warning' onPress={() => alert('Login')}>
+          <Button status='warning' onPress={this.handleOnLogin}>
             Login
           </Button>
         </View>
@@ -58,4 +90,4 @@ class Login extends Component {
   }
 }
 
-export default Login
+export default withFirebaseHOC(Login)
