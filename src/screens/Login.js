@@ -26,7 +26,8 @@ class Login extends Component {
         this.props.navigation.navigate('App')
       }
     } catch (error) {
-      alert('Could not login due to', error)
+      console.log(error)
+      alert('Could not login.')
     }
   }
 
