@@ -1,5 +1,5 @@
 import firebase from 'react-native-firebase'
-// import uuid from 'uuid'
+import uuid from 'uuid'
 
 const Firebase = {
   // auth

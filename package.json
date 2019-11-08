@@ -23,7 +23,8 @@
     "react-native-ui-kitten": "4.2.0",
     "react-navigation": "4.0.10",
     "react-navigation-stack": "1.10.3",
-    "react-navigation-tabs": "2.5.6"
+    "react-navigation-tabs": "2.5.6",
+    "uuid": "3.3.3"
   },
   "devDependencies": {
     "@babel/core": "7.7.2",
