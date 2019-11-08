@@ -3,6 +3,9 @@ import { View } from 'react-native'
 import { Text, Button, Input, Icon } from 'react-native-ui-kitten'
 
 class Login extends Component {
+  handleSignup = () => {
+    this.props.navigation.navigate('Signup')
+  }
   render() {
     return (
       <View style={{ flex: 1, backgroundColor: '#fff', paddingHorizontal: 30 }}>
@@ -41,6 +44,7 @@ class Login extends Component {
             Don't have an account?{' '}
           </Text>
           <Button
+            onPress={this.handleSignup}
             status='info'
             appearance='ghost'
             style={{
