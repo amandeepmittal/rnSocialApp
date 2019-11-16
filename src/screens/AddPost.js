@@ -89,7 +89,14 @@ class AddPost extends Component {
             value={this.state.description}
             onChangeText={description => this.onChangeDescription(description)}
           />
-          <Button status='success' onPress={this.onSubmit}>
+          <Button
+            status='success'
+            onPress={this.onSubmit}
+            disabled={
+              this.state.image && this.state.title && this.state.description
+                ? false
+                : true
+            }>
             Add post
           </Button>
         </View>
