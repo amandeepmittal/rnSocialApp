@@ -13,7 +13,7 @@ class _Feed extends Component {
   fetchPosts = async () => {
     try {
       const posts = await this.props.firebase.getPosts()
-      console.log(posts)
+      // console.log(posts)
       this.setState({ DATA: posts, isRefreshing: false })
     } catch (error) {
       console.log(error)
