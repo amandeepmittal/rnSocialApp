@@ -24,8 +24,10 @@ const Firebase = {
       .set(userData)
   },
   uploadPost: post => {
+    let user = firebase.auth().currentUser
     const id = uuid.v4()
     const uploadData = {
+      uid: user.uid,
       id: id,
       postPhoto: post.photo,
       postTitle: post.title,
@@ -39,18 +41,23 @@ const Firebase = {
       .set(uploadData)
   },
   getPosts: () => {
-    return firebase
-      .firestore()
-      .collection('posts')
-      .get()
-      .then(function(querySnapshot) {
-        let posts = querySnapshot.docs.map(doc => doc.data())
-        // console.log(posts)
-        return posts
-      })
-      .catch(function(error) {
-        console.log('Error getting documents: ', error)
-      })
+    let user = firebase.auth().currentUser
+    return (
+      firebase
+        .firestore()
+        .collection('posts')
+        // .where('uid', '==', user.uid)
+        .get()
+        .then(function(querySnapshot) {
+          let posts = querySnapshot.docs.map(doc => doc.data())
+          // console.log('CURRENT USER =======>', user)
+          // console.log(posts)
+          return posts
+        })
+        .catch(function(error) {
+          console.log('Error getting documents: ', error)
+        })
+    )
   }
 }
 
