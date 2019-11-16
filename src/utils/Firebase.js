@@ -41,23 +41,33 @@ const Firebase = {
       .set(uploadData)
   },
   getPosts: () => {
+    // let user = firebase.auth().currentUser
+    return firebase
+      .firestore()
+      .collection('posts')
+      .get()
+      .then(function(querySnapshot) {
+        let posts = querySnapshot.docs.map(doc => doc.data())
+        return posts
+      })
+      .catch(function(error) {
+        console.log('Error getting documents: ', error)
+      })
+  },
+  getUserPosts: () => {
     let user = firebase.auth().currentUser
-    return (
-      firebase
-        .firestore()
-        .collection('posts')
-        // .where('uid', '==', user.uid)
-        .get()
-        .then(function(querySnapshot) {
-          let posts = querySnapshot.docs.map(doc => doc.data())
-          // console.log('CURRENT USER =======>', user)
-          // console.log(posts)
-          return posts
-        })
-        .catch(function(error) {
-          console.log('Error getting documents: ', error)
-        })
-    )
+    return firebase
+      .firestore()
+      .collection('posts')
+      .where('uid', '==', user.uid)
+      .get()
+      .then(function(querySnapshot) {
+        let posts = querySnapshot.docs.map(doc => doc.data())
+        return posts
+      })
+      .catch(function(error) {
+        console.log('Error getting documents: ', error)
+      })
   }
 }
 
