@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { View } from 'react-native'
-import { Text, Button, withStyles, Avatar } from 'react-native-ui-kitten'
+import { View, TouchableOpacity } from 'react-native'
+import { Text, Button, withStyles, Avatar, Icon } from 'react-native-ui-kitten'
 
 import { withFirebaseHOC } from '../utils'
 import Gallery from '../components/Gallery'
@@ -49,20 +49,28 @@ class _Profile extends Component {
     }
   }
 
+  handleEditAvatarNavigation = () => {
+    this.props.navigation.navigate('EditAvatar')
+  }
+
   render() {
     const { images, userDetails } = this.state
     const { themedStyle } = this.props
     return (
       <View style={themedStyle.root}>
         <View style={[themedStyle.header, themedStyle.bordered]}>
-          <Avatar
-            source={{
-              uri:
-                'https://images.unsplash.com/photo-1559526323-cb2f2fe2591b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80'
-            }}
-            size='giant'
-            style={{ width: 100, height: 100 }}
-          />
+          <View>
+            <Avatar
+              source={this.state.userDetails.avatar}
+              size='giant'
+              style={{ width: 100, height: 100 }}
+            />
+            <View style={themedStyle.add}>
+              <TouchableOpacity onPress={this.handleEditAvatarNavigation}>
+                <Icon name='edit-outline' width={20} height={20} fill='#111' />
+              </TouchableOpacity>
+            </View>
+          </View>
           <Text category='h6' style={themedStyle.text}>
             {userDetails.name}
           </Text>
@@ -116,7 +124,7 @@ export default Profile = withFirebaseHOC(
   withStyles(_Profile, theme => ({
     root: {
       backgroundColor: theme['color-basic-100'],
-      marginTop: 60
+      marginTop: 10
     },
     header: {
       alignItems: 'center',
@@ -157,6 +165,17 @@ export default Profile = withFirebaseHOC(
     },
     text: {
       color: theme['color-basic-1000']
+    },
+    add: {
+      backgroundColor: '#939393',
+      position: 'absolute',
+      bottom: 0,
+      right: 0,
+      width: 30,
+      height: 30,
+      borderRadius: 15,
+      alignItems: 'center',
+      justifyContent: 'center'
     }
   }))
 )

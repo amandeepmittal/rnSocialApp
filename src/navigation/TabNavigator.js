@@ -8,7 +8,7 @@ import { FeedNavigator, ProfileNavigator } from './StackNavigator'
 import Search from '../screens/Search'
 import AddPost from '../screens/AddPost'
 import Activity from '../screens/Activity'
-import Profile from '../screens/Profile'
+// import Profile from '../screens/Profile'
 
 const TabNavigator = createBottomTabNavigator(
   {
