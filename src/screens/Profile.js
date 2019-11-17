@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
 import { View } from 'react-native'
 import { Text, Button, withStyles, Avatar } from 'react-native-ui-kitten'
+
 import { withFirebaseHOC } from '../utils'
 import Gallery from '../components/Gallery'
 
 class _Profile extends Component {
   state = {
-    images: []
+    images: [],
+    userDetails: {}
   }
 
   componentDidMount() {
+    this.fetchUserDetails()
     this.fetchPosts()
   }
 
@@ -21,7 +24,17 @@ class _Profile extends Component {
       })
 
       this.setState({ images })
-      console.log(this.state.images)
+      // console.log(this.state.images)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  fetchUserDetails = async () => {
+    try {
+      const userDetails = await this.props.firebase.getUserDetails()
+      // console.log('USER DETAILS ===========>>', userDetails)
+      this.setState({ userDetails })
     } catch (error) {
       console.log(error)
     }
@@ -37,7 +50,7 @@ class _Profile extends Component {
   }
 
   render() {
-    const { images } = this.state
+    const { images, userDetails } = this.state
     const { themedStyle } = this.props
     return (
       <View style={themedStyle.root}>
@@ -51,7 +64,7 @@ class _Profile extends Component {
             style={{ width: 100, height: 100 }}
           />
           <Text category='h6' style={themedStyle.text}>
-            Test User
+            {userDetails.name}
           </Text>
         </View>
         <View style={[themedStyle.userInfo, themedStyle.bordered]}>
