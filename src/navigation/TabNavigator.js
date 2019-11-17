@@ -3,7 +3,7 @@ import { createAppContainer } from 'react-navigation'
 import { createBottomTabNavigator } from 'react-navigation-tabs'
 import { Icon } from 'react-native-ui-kitten'
 
-import { FeedNavigator } from './StackNavigator'
+import { FeedNavigator, ProfileNavigator } from './StackNavigator'
 
 import Search from '../screens/Search'
 import AddPost from '../screens/AddPost'
@@ -65,7 +65,7 @@ const TabNavigator = createBottomTabNavigator(
       }
     },
     Profile: {
-      screen: Profile,
+      screen: ProfileNavigator,
       navigationOptions: {
         tabBarIcon: ({ focused }) => (
           <Icon
