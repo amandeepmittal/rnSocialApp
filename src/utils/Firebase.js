@@ -68,6 +68,22 @@ const Firebase = {
       .catch(function(error) {
         console.log('Error getting documents: ', error)
       })
+  },
+  getUserDetails: () => {
+    let user = firebase.auth().currentUser
+    return firebase
+      .firestore()
+      .collection('users')
+      .doc(user.uid)
+      .get()
+      .then(function(doc) {
+        let userDetails = doc.data()
+        // console.log('USER DETAILS ===========>>', doc.data())
+        return userDetails
+      })
+      .catch(function(error) {
+        console.log('Error getting documents: ', error)
+      })
   }
 }
 
