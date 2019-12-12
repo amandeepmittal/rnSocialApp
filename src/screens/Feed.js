@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { Image, View, TouchableOpacity, ActivityIndicator } from 'react-native'
+import { View, TouchableOpacity, ActivityIndicator } from 'react-native'
 import { Text, Avatar, withStyles, List } from 'react-native-ui-kitten'
 import { withFirebaseHOC } from '../utils'
+import PinchableBox from '../components/PinchableBox'
 
 class _Feed extends Component {
   state = { DATA: null, isRefreshing: false }
@@ -28,10 +29,7 @@ class _Feed extends Component {
   render() {
     const renderItem = ({ item }) => (
       <View style={this.props.themedStyle.card}>
-        <Image
-          source={{ uri: item.postPhoto.uri }}
-          style={this.props.themedStyle.cardImage}
-        />
+        <PinchableBox imageUri={item.postPhoto.uri} />
         <View style={this.props.themedStyle.cardHeader}>
           <Text category='s1' style={this.props.themedStyle.cardTitle}>
             {item.postTitle}
@@ -83,10 +81,6 @@ export default Feed = withFirebaseHOC(
     card: {
       backgroundColor: theme['color-basic-100'],
       marginBottom: 25
-    },
-    cardImage: {
-      width: '100%',
-      height: 300
     },
     cardHeader: {
       padding: 10,
