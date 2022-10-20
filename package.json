@@ -17,7 +17,7 @@
     "react-native-firebase": "5.5.6",
     "react-native-gesture-handler": "1.5.0",
     "react-native-image-picker": "1.1.0",
-    "react-native-reanimated": "1.4.0",
+    "react-native-reanimated": "2.10.0",
     "react-native-screens": "^1.0.0-alpha.23",
     "react-native-svg": "9.13.3",
     "react-native-ui-kitten": "4.2.0",
